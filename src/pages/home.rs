@@ -14,7 +14,7 @@ impl Component for Home {
                 id: 1,
                 name: "Apple".to_string(),
                 description: "An apple a day keeps the doctor away".to_string(),
-                image: "/products/apple.png".to_string(),
+                image: "/products/apple.jpg".to_string(),
                 price: 3.65,
             },
             Product {
