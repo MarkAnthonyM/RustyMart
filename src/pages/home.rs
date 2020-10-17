@@ -42,7 +42,22 @@ impl Component for Home {
     }
 
     fn view(&self) -> Html {
-        html! { <span>{"Home Sweet Home!"}</span> }
+        let products: Vec<Html> = self
+            .state
+            .products
+            .iter()
+            .map(|product: &Product| {
+                html! {
+                    <div>
+                        <img src={&product.image}/>
+                        <div>{&product.name}</div>
+                        <div>{"$"}{&product.price}</div>
+                    </div>
+                }
+            })
+            .collect();
+        
+            html! { <span>{products}</span> }
     }
 }
 
