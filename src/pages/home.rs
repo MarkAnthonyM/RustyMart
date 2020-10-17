@@ -1,13 +1,19 @@
 use yew::prelude::*;
 
-pub struct Home {}
+pub struct Home {
+    state: State,
+}
 
 impl Component for Home {
     type Message = ();
     type Properties = ();
 
     fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
-        Self {}
+        Self {
+            state: State {
+                products,
+            }
+        }
     }
 
     fn update(&mut self, _: Self::Message) -> ShouldRender {
