@@ -29,3 +29,7 @@ struct Product {
     image: String,
     price: f64,
 }
+
+struct State {
+    products: Vec<Product>,
+}
