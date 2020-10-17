@@ -1,5 +1,5 @@
 [package]
-name = "yew-rustmart"
+name = "yew_rustmart"
 version = "0.1.0"
 authors = ["MarkAnthonyM <MarkAnthonyMartinez9@gmail.com>"]
 edition = "2018"
