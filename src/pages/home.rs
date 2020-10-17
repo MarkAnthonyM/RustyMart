@@ -22,3 +22,10 @@ impl Component for Home {
         html! { <span>{"Home Sweet Home!"}</span> }
     }
 }
+
+struct Product {
+    name: String,
+    description: String,
+    image: String,
+    price: f64,
+}
