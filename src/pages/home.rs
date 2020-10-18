@@ -121,4 +121,7 @@ struct State {
 
 pub enum Msg {
     AddToCart(i32),
+    GetProducts,
+    GetProductsSuccess(Vec<Product>),
+    GetProductsError(Error),
 }
