@@ -499,6 +499,8 @@ dependencies = [
 name = "yew_rustmart"
 version = "0.1.0"
 dependencies = [
+ "anyhow 1.0.33 (registry+https://github.com/rust-lang/crates.io-index)",
+ "serde 1.0.117 (registry+https://github.com/rust-lang/crates.io-index)",
  "yew 0.17.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
