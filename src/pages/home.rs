@@ -61,6 +61,7 @@ impl Component for Home {
     }
 }
 
+#[derive(Clone)]
 struct Product {
     id: i32,
     name: String,
