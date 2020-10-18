@@ -16,24 +16,26 @@ impl Component for Home {
     type Properties = ();
 
     fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
-        let products = vec![
-            Product {
-                id: 1,
-                name: "Apple".to_string(),
-                description: "An apple a day keeps the doctor away".to_string(),
-                image: "https://p1.hiclipart.com/preview/616/544/999/fruit-and-vegetable-red-apple-fruit-png-clipart.jpg".to_string(),
-                price: 3.65,
-            },
-            Product {
-                id: 2,
-                name: "Banana".to_string(),
-                description: "An old banana leaf was once young and green".to_string(),
-                image: "https://cdn.iconscout.com/icon/free/png-256/bananas-55-1176320.png".to_string(),
-                price: 7.99,
-            },
-        ];
-
+        // let products = vec![
+        //     Product {
+        //         id: 1,
+        //         name: "Apple".to_string(),
+        //         description: "An apple a day keeps the doctor away".to_string(),
+        //         image: "https://p1.hiclipart.com/preview/616/544/999/fruit-and-vegetable-red-apple-fruit-png-clipart.jpg".to_string(),
+        //         price: 3.65,
+        //     },
+        //     Product {
+        //         id: 2,
+        //         name: "Banana".to_string(),
+        //         description: "An old banana leaf was once young and green".to_string(),
+        //         image: "https://cdn.iconscout.com/icon/free/png-256/bananas-55-1176320.png".to_string(),
+        //         price: 7.99,
+        //     },
+        // ];
+        let products = vec![];
         let cart_products = vec![];
+
+        link.send_message(Msg::GetProducts);
         
         Self {
             state: State {
