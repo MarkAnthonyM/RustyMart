@@ -8,6 +8,7 @@ use yew::prelude::*;
 pub struct Home {
     state: State,
     link: ComponentLink<Self>,
+    task: Option<FetchTask>,
 }
 
 impl Component for Home {
@@ -42,6 +43,7 @@ impl Component for Home {
                 get_products_loaded: false,
             },
             link,
+            task: None,
         }
     }
 
