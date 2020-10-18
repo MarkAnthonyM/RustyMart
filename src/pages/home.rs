@@ -2,6 +2,7 @@ use yew::prelude::*;
 
 pub struct Home {
     state: State,
+    link: ComponentLink<Self>,
 }
 
 impl Component for Home {
