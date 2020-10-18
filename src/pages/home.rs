@@ -111,6 +111,7 @@ impl Component for Home {
 struct State {
     products: Vec<Product>,
     cart_products: Vec<CartProduct>,
+    get_products_error: Option<Error>,
 }
 
 pub enum Msg {
