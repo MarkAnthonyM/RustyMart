@@ -9,7 +9,7 @@ impl Component for Home {
     type Message = Msg;
     type Properties = ();
 
-    fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
+    fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
         let products = vec![
             Product {
                 id: 1,
@@ -26,11 +26,15 @@ impl Component for Home {
                 price: 7.99,
             },
         ];
+
+        let cart_products = vec![];
         
         Self {
             state: State {
                 products,
-            }
+                cart_products,
+            },
+            link,
         }
     }
 
