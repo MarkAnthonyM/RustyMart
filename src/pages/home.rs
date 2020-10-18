@@ -51,6 +51,30 @@ impl Component for Home {
 
     fn update(&mut self, message: Self::Message) -> ShouldRender {
         match message {
+            Msg::GetProducts => {
+                self.state.get_products_loaded = false;
+                let handler =
+                    self.link
+                        .callback(move |response: api::FetchResponse<Vec<Product>>| {
+                            let (_, Json(data)) = response.into_parts();
+                            match data {
+                                Ok(products) => Msg::GetProductsSuccess(products),
+                                Err(err) => Msg::GetProductsError(err),
+                            }
+                        });
+                self.task = Some(api::get_products(handler));
+                true
+            },
+            Msg::GetProductsSuccess(products) => {
+                self.state.products = products;
+                self.state.get_products_loaded = true;
+                true
+            },
+            Msg::GetProductsError(error) => {
+                self.state.get_products_error = Some(error);
+                self.state.get_products_loaded = true;
+                true
+            },
             Msg::AddToCart(product_id) => {
                 let product = self
                     .state
