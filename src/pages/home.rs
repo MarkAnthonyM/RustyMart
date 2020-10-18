@@ -76,11 +76,13 @@ impl Component for Home {
             .products
             .iter()
             .map(|product: &Product| {
+                let product_id = product.id;
                 html! {
                     <div>
                         <img src={&product.image}/>
                         <div>{&product.name}</div>
                         <div>{"$"}{&product.price}</div>
+                        <button onclick=self.link.callback(move |_| Msg::AddToCart(product_id))>{"Add To Cart"}</button>
                     </div>
                 }
             })
