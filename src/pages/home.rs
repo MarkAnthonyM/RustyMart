@@ -38,8 +38,32 @@ impl Component for Home {
         }
     }
 
-    fn update(&mut self, _: Self::Message) -> ShouldRender {
-        true
+    fn update(&mut self, message: Self::Message) -> ShouldRender {
+        match message {
+            Msg::AddToCart(product_id) => {
+                let product = self
+                    .state
+                    .products
+                    .iter()
+                    .find(|p: &&Product| p.id == product_id)
+                    .unwrap();
+                let cart_product = self
+                    .state
+                    .cart_products
+                    .iter_mut()
+                    .find(|cp: &&mut CartProduct| cp.product.id == product_id);
+
+                if let Some(cp) = cart_product {
+                    cp.quantity += 1;
+                } else {
+                    self.state.cart_products.push(CartProduct {
+                        product: product.clone(),
+                        quantity: 1,
+                    })
+                }
+                true
+            }
+        }
     }
 
     fn change(&mut self, _: Self::Properties) -> ShouldRender {
