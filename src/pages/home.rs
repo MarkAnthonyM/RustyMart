@@ -88,7 +88,18 @@ impl Component for Home {
             })
             .collect();
         
-            html! { <span>{products}</span> }
+        let cart_value = self
+            .state
+            .cart_products
+            .iter()
+            .fold(0.0, |acc, cp| acc + (cp.quantity as f64 * cp.product.price));
+        
+        html! {
+            <div>
+                <span>{format!("Cart Value: {:.2}", cart_value)}</span>
+                <span>{products}</span>
+            </div>
+        }
     }
 }
 
