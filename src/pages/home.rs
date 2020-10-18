@@ -69,6 +69,11 @@ struct Product {
     price: f64,
 }
 
+struct CartProduct {
+    product: Product,
+    quantity: i32,
+}
+
 struct State {
     products: Vec<Product>,
 }
