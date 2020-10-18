@@ -77,4 +77,5 @@ struct CartProduct {
 
 struct State {
     products: Vec<Product>,
+    cart_products: Vec<CartProduct>,
 }
