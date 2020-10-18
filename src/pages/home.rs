@@ -80,3 +80,7 @@ struct State {
     products: Vec<Product>,
     cart_products: Vec<CartProduct>,
 }
+
+pub enum Msg {
+    AddToCart(i32),
+}
