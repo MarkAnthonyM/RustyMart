@@ -103,20 +103,6 @@ impl Component for Home {
     }
 }
 
-#[derive(Clone)]
-struct Product {
-    id: i32,
-    name: String,
-    description: String,
-    image: String,
-    price: f64,
-}
-
-struct CartProduct {
-    product: Product,
-    quantity: i32,
-}
-
 struct State {
     products: Vec<Product>,
     cart_products: Vec<CartProduct>,
