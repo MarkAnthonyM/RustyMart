@@ -38,6 +38,8 @@ impl Component for Home {
             state: State {
                 products,
                 cart_products,
+                get_products_error: None,
+                get_products_loaded: false,
             },
             link,
         }
@@ -112,6 +114,7 @@ struct State {
     products: Vec<Product>,
     cart_products: Vec<CartProduct>,
     get_products_error: Option<Error>,
+    get_products_loaded: bool,
 }
 
 pub enum Msg {
