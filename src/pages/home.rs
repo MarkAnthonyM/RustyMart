@@ -6,7 +6,7 @@ pub struct Home {
 }
 
 impl Component for Home {
-    type Message = ();
+    type Message = Msg;
     type Properties = ();
 
     fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
